@@ -1,0 +1,279 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 5vw;
+    overflow: hidden;
+}
+.hidden{
+    display: none !important;
+}
+.PlayerCell.active{
+    background: white;
+    opacity: 1;
+}
+/*/////////////////// BackDrop*/
+.BackDrop {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #5590CC;
+    z-index: 0;
+}
+.CheveronTop{
+    position: absolute;
+    bottom: 10vh;
+    left: -35vw;
+    width: 0;
+    height: 0;
+    border: 85vw solid transparent;
+      border-bottom: 85vw solid white;
+
+}
+.CheveronBottom{
+    position: absolute;
+    bottom: -5vh;
+    left: -35vw;
+    width: 0;
+    height: 0;
+    border: 85vw solid transparent;
+      border-bottom: 85vw solid #5590CC;
+}
+/*////////////////// Top Banner*/
+.Banner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8vh;
+    background: #25609C;
+    border-bottom: 2px outset white;
+}
+.Title{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-size: 6vh;
+    line-height: 1.33;
+}
+.Option{
+    position: absolute;
+    width: 6vh;
+    height: 6vh;
+    margin: 1vh;
+    right: 0;
+    top: 0;
+    z-index: 20;
+}
+.Burger{
+    position: absolute;
+    width: 6vh;
+    height: 6vh;
+    margin: 1vh;
+    border: 1px solid #FFF;
+    opacity: 0.8;
+    border-radius: 5px;
+    left: 0;
+    top: 0;
+    z-index: 20;
+}
+/*////////////////// Menus */
+nav, .options{
+    position: fixed;
+    top: 8vh;
+    width: 61vw;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid;
+    transition: 0.3s ease-in-out;
+    z-index: 5;
+}
+nav {left: -61vw;}
+.options{right: -61vw;}
+nav.active {left: 0;}
+.options.active {right: 0;}
+nav h4, .options h4{
+    color: black;
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+nav a, .options a{
+    text-decoration: none;
+    font-size: 24px;
+    color: black;
+    border-bottom: 1px solid;
+    padding: 5px;
+    padding-left: 15px;
+}
+.options select {
+    height: 2rem;
+    margin: 0.5rem;
+    text-align: center;
+    padding-left: 25vw;
+    border: 1px solid gray;
+}
+
+
+.RightScreen, .LeftScreen{
+    background: white;
+    border: solid 1px gray;
+    position: absolute;
+    top: 10vh;
+    width: 80vw;
+    height: 80vh;
+    z-index: 4;
+    transition: 0.5s ease-in-out;
+}
+.LeftScreen {
+    left: -80vw;
+}
+.RightScreen {
+    right: -80vw;
+    display: none;
+    
+}
+.RightScreen.Active{
+    right: 10vw;
+    display: block;
+}
+.LeftScreen.Active{
+    left: 10vw;
+}
+#MergeZone{
+    position: absolute;
+    bottom: 0;
+    height: 20vh;
+    width: 100%;
+}
+#MergeZone > select, #MergeButton{
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    border: 1px solid;
+}
+
+/*////////////////// Pages*/
+.Stage {
+    background: #fff;
+    opacity: 0.8;
+    position: relative;
+    top: 10vh;
+    left: 10vw;
+    width: 80vw;
+    height: 90vh;
+}
+.Stage > p, .Stage > div{
+    margin: 15px;
+}
+/*////////////////// Home*/
+h4{
+    text-align: center;
+    padding: 10px;
+}
+input{
+    background-color: white;
+    border-radius: 5px;
+    float: right;
+    width: 30vw;
+    border: solid 1px black;
+    text-align: center;
+    margin-right: 15px;
+}
+#CardData, .DoneValue, .CurrentValue {
+    margin: 5vw;
+    border: 1px solid black;
+    width: 70vw;
+    height: 30vw;
+    border-radius: 15px;
+}
+#ActivePlayers{
+    display: inline;
+    margin-left: 15px;
+    font-weight: bold;
+}
+#Write{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 13vw;
+    background: lightgray;
+    border: outset 10px lightgray;
+}
+/*/////////////// Rewards*/
+#Reward > .stage > h4 {
+    margin: 2.5vw;
+}
+.stage > div.DoneValue, .stage > div.CurrentValue {
+    margin-top: 0;
+    margin-left: 5vw;
+}
+/*//////////////// Shop */
+#shopGold, #shopPrice {
+    margin: 0;
+    display: inline-block;
+    width: 49%;
+    opacity: 2;
+}
+div.StoreFront {
+    margin-left: -15px;
+    width: 110%;
+    height: 50vh;
+    border: solid black;
+    overflow: scroll
+}
+.ShopItem{
+    height: 5vh;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 2vw;
+}
+#Cost, #Cart{
+    padding-left: 2vw;
+    padding-right: 2vw;
+    position: absolute;
+}
+#Cart{ right: 0 }
+#Cost { left: 0 }
+.SalesPicker {
+    position: absolute;
+    width: 80vw;
+    height: 40vh;
+    top: 30vh;
+    left: 10vw;
+    background: white;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+#ItemPlus, #ItemMinus, #ItemCart {
+    bottom: 15vw;
+    margin: 2vw;
+    position: absolute;
+    font-size: 8vw;
+}
+#ItemPlus {
+    right: 0;
+}
+#ItemCart {
+    left: 25vw;
+}
+#ClosePicker, #SaveValue {
+    position: absolute;
+    margin: 2vw;
+    bottom: 2vw;
+    padding: 1vw;
+    border: solid black 1px;
+    border-radius: 15px;
+    width: 20vw;
+}
+#SaveValue {
+    right: 5vw;
+}
+#ClosePicker {
+    right: 30vw;
+}
