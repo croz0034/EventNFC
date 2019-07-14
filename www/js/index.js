@@ -1,46 +1,56 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
-
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
     },
-
-    // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        nav.init();
+        Tap.init();
+        Shop.init();
+        document.querySelector("#MergeButton").addEventListener("click", EventLifeCycle.MergeTeams)
+        document.querySelectorAll("#Write").forEach((Button)=>{Button.addEventListener("click", app.WriteToggle)});
+        document.querySelector(".Burger").addEventListener('click', nav.Show);
+        document.querySelector(".Option").addEventListener('click', options.Show);
+        document.querySelectorAll(".Page").forEach((page)=>{
+            page.addEventListener("click", nav.Hide)
+        });
+        
+    },
+    
+    WriteToggle: (ev)=>{
+        console.log(Tap.TapMode)
+        if(Tap.TapMode != "Write"){
+        console.log("Write")
+            Tap.TapMode = "Write"
+            let button = document.querySelector("#Write");
+            button.textContent = "Write Mode"
+            button.style.background = "darkgray";
+            button.style.borderStyle = "inset"
+        } else {
+        console.log("Read")
+            Tap.TapMode = "Read"
+            let button = document.querySelector("#Write");
+            button.textContent = "Read Mode"
+            button.style.background = "lightgray"
+            button.style.borderStyle = "outset"
+        }
+    
+}
+}
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
+let Data = {
+    Update: ()=>{
+        if(nav.Page == "Reward"){
+        let Rewards = app.Page("Reward");
+        CurrentCard.EventStats.Gold = CurrentCard.EventStats.Gold + Rewards.querySelector("#Gold").value;
+        CurrentCard.EventStats.Points = CurrentCard.EventStats.Points + Rewards.querySelector("#Points").value;}
+        if(nav.Page == "Shop"){
+        }
     }
-};
-
-app.initialize();
+}
+//app.initialize();
+document.addEventListener("DOMContentLoaded", app.receivedEvent)
